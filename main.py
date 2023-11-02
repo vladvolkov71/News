@@ -9,7 +9,7 @@ def json_news(f):
         data = json.load(file)
         sp = []
         for i in data['rss']['channel']['items']:
-            sp.extend(i['description'].lower().split())
+            sp.extend(i['description'].split())
     return sp
 
 
@@ -19,7 +19,7 @@ def xml_news(f):
     root = tree.getroot()
     sp = []
     for tag in root.findall('channel/item/description'):
-        sp.extend(tag.text.lower().split())
+        sp.extend(tag.text.split())
     return sp
 
 
